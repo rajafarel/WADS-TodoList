@@ -42,7 +42,7 @@ export function TodoItem({
             className="todo-checkbox"
             type="checkbox"
             checked={completed}
-            onChange={(e) => toggleTodo(id, e.target.checked)}
+            onChange={(e) => toggleTodo(id, completed)}
           />
           {title}
           <button className="btn btn-danger" onClick={() => deleteTodo(id)}>

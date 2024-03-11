@@ -11,6 +11,9 @@ import {
   signOut,
 } from "firebase/auth";
 
+import {getStorage} from "firebase/storage";
+import { useNavigate } from "react-router-dom";
+
 
 
 
@@ -30,6 +33,7 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
+//const navigate = useNavigate();
 
 const signInWithGoogle = async () => {
   try {
@@ -83,8 +87,13 @@ const sendPasswordReset = async (email) => {
   }
 };
 const logout = () => {
+
   signOut(auth);
+  //navigate("/");
 };
+
+export const storage = getStorage(app);
+
 
 export {
   auth,
